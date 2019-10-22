@@ -107,7 +107,7 @@ extension MediaProcessor {
     }
     
     private func processedMoviePath(_ fileName: String, _ folderName: String) -> URL {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + kProcessedTemporaryVideoFileName
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/" + folderName + "/" + fileName
 
         return URL(fileURLWithPath: documentsPath)
     }
