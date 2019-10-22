@@ -68,7 +68,7 @@ extension MediaProcessor {
         instruction.layerInstructions = [layerInstruction]
         videoComposition.instructions = [instruction]
         
-        let processedUrl = processedMoviePath()
+        let processedUrl = processedMoviePath(videoFileName, folderName)
         clearTemporaryData(url: processedUrl, completion: completion)
         
         let exportSession = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
