@@ -15,7 +15,7 @@ let kMediaContentTimeValue: Int64 = 1
 let kMediaContentTimeScale: Int32 = 30
 
 extension MediaProcessor {
-    func processVideoWithElements(item: MediaItem, completion: @escaping ProcessCompletionHandler) {
+    func processVideoWithElements(item: MediaItem, videoFileName: String, folderName: String, completion: @escaping ProcessCompletionHandler) {
         let mixComposition = AVMutableComposition()
         let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let clipVideoTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.video).first
@@ -106,8 +106,9 @@ extension MediaProcessor {
         }
     }
     
-    private func processedMoviePath() -> URL {
+    private func processedMoviePath(_ fileName: String, _ folderName: String) -> URL {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + kProcessedTemporaryVideoFileName
+
         return URL(fileURLWithPath: documentsPath)
     }
     
